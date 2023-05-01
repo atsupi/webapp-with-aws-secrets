@@ -1,7 +1,7 @@
 FROM node:16-alpine
 USER root
 
-ENV NODE_ENV=prod
+ENV NODE_ENV=dev
 
 WORKDIR /home/node/app
 COPY package*.json ./

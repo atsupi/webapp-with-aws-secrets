@@ -15,18 +15,10 @@ const listener = app.listen(PORT, () => {
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
-const SECRETS_ID = `apihandlebarsexample_${process.env.NODE_ENV}`;
+const SECRETS_ID = `apipath_${process.env.NODE_ENV}`;
 
 app.get("/run_api.js", (req, res) => {
     res.contentType('javascript');
-    if (process.env.NODE_ENV === "dev") {
-        console.log("index.js:", SECRETS_ID);
-        const params = {
-            apiorigin: "http://localhost:3001"
-        }
-        res.render('run_api', params);
-        return;
-    }
     retrieveSecrets(SECRETS_ID).then((data) => {
         const url = data.apihandlebarsexample;
         const params = {

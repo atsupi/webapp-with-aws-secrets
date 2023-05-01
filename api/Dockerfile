@@ -1,6 +1,6 @@
 FROM node:16-alpine
 
-ENV NDOE_ENV=prod
+ENV NDOE_ENV=dev
 ENV WEBORIGIN=http://web.aws-multi-container-example.local:3000
 
 WORKDIR /home/node/app

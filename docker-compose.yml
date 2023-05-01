@@ -2,9 +2,9 @@ version: '3.7'
 
 services:
   api:
-#    build: ./api
-    image: 074682543290.dkr.ecr.ap-northeast-1.amazonaws.com/webapp-with-aws-secrets-api
-#    image: web-api
+    build: ./api
+#    image: 074682543290.dkr.ecr.ap-northeast-1.amazonaws.com/webapp-with-aws-secrets-api
+    image: web-api
     container_name: node-web-api
     ports:
       - "3001:3001"
@@ -19,9 +19,9 @@ services:
           - ssmmessages:OpenDataChannel
         Resource: '*'
   web:
-#    build: ./web
-    image: 074682543290.dkr.ecr.ap-northeast-1.amazonaws.com/webapp-with-aws-secrets-web
-#    image: web-app
+    build: ./web
+#    image: 074682543290.dkr.ecr.ap-northeast-1.amazonaws.com/webapp-with-aws-secrets-web
+    image: web-app
     container_name: node-web-app
     ports:
       - "3000:3000"
