@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            table {
+                border: solid 1px;
+                border-collapse:  collapse;
+                white-space: nowrap;                
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Node.js!</h1>
+        <div id="priceform_div">
+            <form action="./run_api.js" name="priceform">
+                Name <input type="text" name="fruit_name" value="cherry">
+                Price <input type="text" name="fruit_price" value="600">
+                <input type="button" value="Add one" id="addone">
+            </form>
+        </div>
+        <div id="pricetable">
+            Price Table
+        </div>
+        <div id="footer">
+        </div>
+        <script src="./run_api.js"></script>
+    </body>
+</html>

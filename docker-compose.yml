@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+  api:
+#    build: ./api
+    image: 074682543290.dkr.ecr.ap-northeast-1.amazonaws.com/aws-multi-container-example-api
+#    image: web-api
+    container_name: node-web-api
+    ports:
+      - "3001:3001"
+    x-aws-role:
+      Version: '2012-10-17'
+      Statement:
+      - Effect: Allow
+        Action:
+          - ssmmessages:CreateControlChannel
+          - ssmmessages:CreateDataChannel
+          - ssmmessages:OpenControlChannel
+          - ssmmessages:OpenDataChannel
+        Resource: '*'
+  web:
+#    build: ./web
+    image: 074682543290.dkr.ecr.ap-northeast-1.amazonaws.com/aws-multi-container-example-web
+#    image: web-app
+    container_name: node-web-app
+    ports:
+      - "3000:3000"
+    x-aws-role:
+      Version: '2012-10-17'
+      Statement:
+      - Effect: Allow
+        Action:
+          - ssmmessages:CreateControlChannel
+          - ssmmessages:CreateDataChannel
+          - ssmmessages:OpenControlChannel
+          - ssmmessages:OpenDataChannel
+        Resource: '*'
+
+x-aws-cloudformation:
+  Resources:
+    WebService:
+      Properties:
+        EnableExecuteCommand: true
+    ApiService:
+      Properties:
+        EnableExecuteCommand: true
