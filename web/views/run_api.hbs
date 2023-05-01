@@ -1,6 +1,6 @@
-//const api_origin = "http://172.31.14.22:3001";
-const api_origin = "http://api.aws-multi-container-example.local";
-// const api_origin = "http://";
+// Template for run_api.js
+
+const api_origin = "{{{apiorigin}}}";
 
 var prices = [{"name": "", "id": 1, "price": 0}]; // dummy
 
@@ -46,9 +46,8 @@ function createPriceTable() {
 }
 
 async function callApi() {
-  console.log("Accessing to URL:%s", api_origin + "/fruit/prices");
-  const res = await fetch(api_origin + "/fruit/prices");
-  return await res.json();
+    const res = await fetch(api_origin + "/fruit/prices");
+    return await res.json();
 }
 
 async function callPostApi(name, price) {

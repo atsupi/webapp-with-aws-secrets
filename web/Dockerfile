@@ -7,9 +7,9 @@ WORKDIR /home/node/app
 COPY package*.json ./
 RUN npm install
 
-COPY ./src ./src
+COPY ./views ./views
 COPY ./public ./public
-COPY ./index.js ./
+COPY ./*.js ./
 
 EXPOSE 3000
 
