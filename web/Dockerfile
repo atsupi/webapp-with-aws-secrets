@@ -10,6 +10,7 @@ RUN npm install
 COPY ./views ./views
 COPY ./public ./public
 COPY ./*.js ./
+COPY ./.env ./
 
 EXPOSE 3000
 
