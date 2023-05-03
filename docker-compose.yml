@@ -25,6 +25,8 @@ services:
     container_name: node-web-app
     ports:
       - "3000:3000"
+    x-aws-policies:
+      - "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
     x-aws-role:
       Version: '2012-10-17'
       Statement:
